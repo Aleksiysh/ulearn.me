@@ -10,7 +10,7 @@ namespace ConsoleApp1
     {
         public static void Make(int n)
         {
-            for(int i = n - 1; i >= 0; i--)
+            for (int i = n - 1; i >= 0; i--)
             {
                 Console.Write(i + " ");
                 Make(i);
@@ -21,11 +21,49 @@ namespace ConsoleApp1
         /// <summary>
         /// Понимание рекурсии
         /// </summary>
-        
         public static int F(int x)
         {
             if (x % 10 == 0) return 0;
             return 1 + F(x / 10);
+        }
+
+        /// <summary>
+        /// Перебор подмножеств
+        /// </summary>        
+        public static void MakeSubsets(bool[] subset, int position)
+        {
+            if (position == subset.Length)
+            {
+                Evaluate(subset);
+                return;
+            }
+
+            subset[position] = false;
+            MakeSubsets(subset, position + 1);
+            subset[position] = true;
+            MakeSubsets(subset, position + 1);
+        }
+
+        /// <summary>
+        /// Поиск подмножеств
+        /// </summary>
+        public static int[] weights = new int[] { 2, 5, 6, 2, 4, 7 };
+        public static void Evaluate(bool[] subset)
+        {
+            var delta = 0;
+            for (int i = 0; i < subset.Length; i++)
+            {
+                if (subset[i])
+                    delta += weights[i];
+                else
+                    delta -= weights[i];
+                foreach (var e in subset)
+                    Console.Write(e ? 1 : 0);
+                Console.Write(" ");
+                if (delta == 0)
+                    Console.Write("OK");
+                Console.WriteLine();
+            }
         }
 
 
@@ -36,11 +74,11 @@ namespace ConsoleApp1
             if (position == permutation.Length)
             {
                 foreach (var element in permutation)
-                {
+
                     Console.Write(element);
-                    Console.WriteLine(" ");
-                    return;
-                }
+                Console.WriteLine(" ");
+                return;
+
             }
             for (int i = 0; i < permutation.Length; i++)
             {

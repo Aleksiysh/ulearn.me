@@ -10,20 +10,16 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+            char[] ch = new char[] { 'a', 'b', 'c' };
+            Tasks.MakeSubsets(ch);
 
-            Console.WriteLine(RecursionUlearn.F(0));
-            
+
+            //RecursionUlearn.MakeSubsets(new bool[RecursionUlearn.weights.Length], 0);
+
 
             Console.ReadKey();
         }
 
-        public static void WriteReversed(char[] items, int startIndex = 0)
-        {
-            if (startIndex < items.Length - 1)
-                WriteReversed(items, startIndex + 1);
-            if (items.Length > 0)
-                Console.Write(items[startIndex]);
-        }
 
 
 
