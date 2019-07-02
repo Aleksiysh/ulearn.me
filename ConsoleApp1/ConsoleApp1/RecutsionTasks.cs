@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    class Tasks
+    class RecutsionTasks
     {
+        /// <summary>
+        /// Перебор паролей
+        /// </summary>
+        /// <param name="subset"></param>
+        /// <param name="position"></param>
         public static void MakeSubsets(char[] subset, int position = 0)
         {
             if (position == subset.Length)
