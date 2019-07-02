@@ -10,9 +10,13 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Ghbdtn");
-            char[] ch = new char[] { 'a', 'b','s','d' };
-            MakeSubsets(ch);
+
+            for (int i = 0; i < 5; i++)
+            {
+                Console.Write("i=" + i + "    ");
+                RecursionUlearn.Make(i);
+                Console.WriteLine();
+            }
 
             Console.ReadKey();
         }
@@ -25,19 +29,7 @@ namespace ConsoleApp1
                 Console.Write(items[startIndex]);
         }
 
-        static void MakeSubsets(char[] subset, int position = 0)
-        {
-            if (position == subset.Length)
-            {
-                Console.WriteLine(new string(subset));
-                return;
-            }
-            subset[position] = 'a';
-            MakeSubsets(subset, position + 1);
-            subset[position] = 'b';
-            MakeSubsets(subset, position + 1);
-            subset[position] = 'c';
-            MakeSubsets(subset, position + 1);
-        }
+
+
     }
 }
