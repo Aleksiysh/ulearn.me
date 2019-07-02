@@ -18,6 +18,17 @@ namespace ConsoleApp1
         }
 
 
+        /// <summary>
+        /// Понимание рекурсии
+        /// </summary>
+        
+        public static int F(int x)
+        {
+            if (x % 10 == 0) return 0;
+            return 1 + F(x / 10);
+        }
+
+
 
 
         public static void MakePermutations(int[] permutation, int position)

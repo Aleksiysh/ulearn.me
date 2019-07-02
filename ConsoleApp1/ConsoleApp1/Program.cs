@@ -11,12 +11,8 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
 
-            for (int i = 0; i < 5; i++)
-            {
-                Console.Write("i=" + i + "    ");
-                RecursionUlearn.Make(i);
-                Console.WriteLine();
-            }
+            Console.WriteLine(RecursionUlearn.F(0));
+            
 
             Console.ReadKey();
         }
