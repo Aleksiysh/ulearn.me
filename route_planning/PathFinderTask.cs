@@ -20,6 +20,8 @@ namespace RoutePlanning
 			var bestOrder = new int[size];
 			for (int i = 0; i < bestOrder.Length; i++)
 				bestOrder[i] = i;
+
+            double minPath = Double.MaxValue;
             MakePermutations(new int[size], 1, result);
 
             foreach (var purmutation in result)
