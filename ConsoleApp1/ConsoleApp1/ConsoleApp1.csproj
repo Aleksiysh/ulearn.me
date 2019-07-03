@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CaseAlternatorTask.cs" />
     <Compile Include="Commivoyager.cs" />
     <Compile Include="RecursionUlearn.cs" />
     <Compile Include="MainClass.cs" />

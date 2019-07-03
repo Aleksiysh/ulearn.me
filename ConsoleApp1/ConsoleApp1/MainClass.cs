@@ -25,10 +25,12 @@ namespace ConsoleApp1
             //RecursionUlearn.MakePermutations(new int[3], 0);
             //Commivoyager.MakePermutations(new int[4], 0);
 
-            RecutsionTasks.TestOnSize(1);
-            RecutsionTasks.TestOnSize(2);
-            RecutsionTasks.TestOnSize(3);
-            RecutsionTasks.TestOnSize(4);
+            //RecutsionTasks.TestOnSize(1);
+            //RecutsionTasks.TestOnSize(2);
+            //RecutsionTasks.TestOnSize(3);
+            //RecutsionTasks.TestOnSize(4);
+
+            List<string> result = CaseAlternatorTask.AlternateCharCases("a2g4d");
 
             Console.ReadKey();
         }
