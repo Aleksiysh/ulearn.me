@@ -27,23 +27,7 @@ namespace ConsoleApp1
             return 1 + F(x / 10);
         }
 
-        /// <summary>
-        /// Перебор подмножеств
-        /// </summary>        
-        public static void MakeSubsets(bool[] subset, int position)
-        {
-            if (position == subset.Length)
-            {
-                Evaluate(subset);
-                return;
-            }
-
-            subset[position] = false;
-            MakeSubsets(subset, position + 1);
-            subset[position] = true;
-            MakeSubsets(subset, position + 1);
-        }
-
+//*************************************************************************************************
         /// <summary>
         /// Поиск подмножеств
         /// </summary>
@@ -66,33 +50,87 @@ namespace ConsoleApp1
             }
         }
 
-
-
-
-        public static void MakePermutations(int[] permutation, int position)
+        /// <summary>
+        /// Перебор подмножеств
+        /// </summary>        
+        public static void MakeSubsets(bool[] subset, int position=0)
         {
+            if (position == subset.Length)
+            {
+                Evaluate(subset);
+                return;
+            }
+
+            subset[position] = false;
+            MakeSubsets(subset, position + 1);
+            subset[position] = true;
+            MakeSubsets(subset, position + 1);
+        }
+//******************************************************************************************
+        /// <summary>
+        /// Размещения без повторений
+        /// </summary>
+        public static void MakePermutations(int[] permutation, int position)
+        {           
+            // база рекурсии: позиция равна длине перестановки, достигнут последний элемент
             if (position == permutation.Length)
             {
                 foreach (var element in permutation)
-
-                    Console.Write(element);
+                    Console.Write(element+" ");
                 Console.WriteLine(" ");
                 return;
-
             }
+            
+            //по очереди ставим все элементы на текущую позицию,
+            //если их еще нет в существующей перестановки в позициях от 0 до текущей
             for (int i = 0; i < permutation.Length; i++)
             {
                 bool found = false;
-                for (int j = 0; j < permutation.Length; j++)
+                //если текущий элемент найден в перестановке в позиции от 0 до текущей,
+                //работаем со сл элементом
+                for (int j = 0; j < position; j++)
                     if (permutation[j] == i)
                     {
                         found = true;
                         break;
                     }
                 if (found) continue;
+                //если елемента нет в перестановке, ставим его на текущее место
                 permutation[position] = i;
+                //вызов для сл позиции
                 MakePermutations(permutation, position + 1);
             }
+        }
+
+        /// <summary>
+        /// Перебор размещений
+        /// </summary>
+        public static void MakeCombinations(bool[] combination,int elementLeft,int position=0)
+        {
+            //если яблоки кончились
+            if(elementLeft == 0) 
+            {
+                //в остальные корзины кладем нули
+                for (int i = position; i < combination.Length; i++)
+                    combination[position] = false;
+                //вывод результата
+                foreach (var e in combination)
+                    Console.Write((e ? 1 : 0 )+ " ");
+                Console.WriteLine();
+                return;
+            }
+
+            if (position == combination.Length)
+                return;
+
+            //Первая корзина пуста
+            combination[position] = false;
+            //Размещаем яблоки в корзинах начиная со следующей
+            MakeCombinations(combination, elementLeft, position + 1); 
+            //В первую корзину кладем яблоко
+            combination[position] = true;
+            //Размещаем яблоки оставшиеся (на 1 меньше) в корзинах начиная со следующей
+            MakeCombinations(combination, elementLeft - 1, position + 1);
         }
     }
 }
