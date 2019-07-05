@@ -20,8 +20,8 @@ namespace RoutePlanning
             var bestOrder = new int[size];
             for (int i = 0; i < bestOrder.Length; i++)
                 bestOrder[i] = i;
-            double PathBestOrder = getPathOrder(bestOrder, checkpoints);
-
+            double pathBestOrder = getPathOrder(bestOrder, checkpoints);
+            MakePermutations(new int[size], 1, checkpoints, bestOrder);
             return bestOrder;
         }
 
@@ -29,21 +29,27 @@ namespace RoutePlanning
         {
             double pathOrder = 0;
             for(int i = 1; i < order.Length;i++) {
-                pathOrder += getDistance(checkpoints[i - 1], checkpoints[i]);
+                pathOrder += getDistance(checkpoints[order[i-1]], checkpoints[order[i]]);
             }
+
             return pathOrder;
 
         }
 
-        public static void MakePermutations(int[] permutation, int position)
+        public static void MakePermutations(int[] permutation, int position, Point[] checkpoints, int[] bestOrder)
         {
             // база рекурсии: позиция равна длине перестановки, достигнут последний элемент
             if (position == permutation.Length)
             {
+                double tmpPath = getPathOrder(permutation, checkpoints);
+                if (getPathOrder(permutation, checkpoints) < getPathOrder(bestOrder, checkpoints))
+                {
+                    //pathBestOrder = tmpPath;
+                    for (int i = 0; i < permutation.Length; i++)
+                        bestOrder[i] = permutation[i];
+                };
                 return ;
             }
-
-
             //по очереди ставим все элементы на текущую позицию,
             //если их еще нет в существующей перестановки в позициях от 0 до текущей
             for (int i = 0; i < permutation.Length; i++)
@@ -61,12 +67,9 @@ namespace RoutePlanning
                 //если елемента нет в перестановке, ставим его на текущее место
                 permutation[position] = i;
                 //вызов для сл позиции
-                MakePermutations(permutation, position + 1);
-            }
-           
+                MakePermutations(permutation, position + 1, checkpoints, bestOrder);//,pathBestOrder);
+            }           
         }
-
-
 
         private static double getDistance(Point p1, Point p2)
         {
