@@ -9,27 +9,38 @@ namespace RoutePlanning
     {
         public static int[] FindBestCheckpointsOrder(Point[] checkpoints)
         {
-            //var bestOrder = MakeTrivialPermutation(checkpoints.Length);
-            int[] permutation = new int[checkpoints.Length];
-            var bestOrder = MakePermutations(permutation, 1);
-
+            var bestOrder = MakeTrivialPermutation(checkpoints);
+            
             return bestOrder;
         }
 
-        private static int[] MakeTrivialPermutation(int size)
+        private static int[] MakeTrivialPermutation(Point[] checkpoints)
         {
+            int size = checkpoints.Length;
             var bestOrder = new int[size];
             for (int i = 0; i < bestOrder.Length; i++)
                 bestOrder[i] = i;
+            double PathBestOrder = getPathOrder(bestOrder, checkpoints);
+
             return bestOrder;
         }
 
-        public static int[] MakePermutations(int[] permutation, int position)
+        private static double getPathOrder(int[] order, Point[] checkpoints)
+        {
+            double pathOrder = 0;
+            for(int i = 1; i < order.Length;i++) {
+                pathOrder += getDistance(checkpoints[i - 1], checkpoints[i]);
+            }
+            return pathOrder;
+
+        }
+
+        public static void MakePermutations(int[] permutation, int position)
         {
             // база рекурсии: позиция равна длине перестановки, достигнут последний элемент
             if (position == permutation.Length)
             {
-                return permutation;
+                return ;
             }
 
 
@@ -52,6 +63,7 @@ namespace RoutePlanning
                 //вызов для сл позиции
                 MakePermutations(permutation, position + 1);
             }
+           
         }
 
 
