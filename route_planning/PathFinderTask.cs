@@ -19,5 +19,10 @@ namespace RoutePlanning
 				bestOrder[i] = i;
 			return bestOrder;
 		}
-	}
+
+        private static double getDistance(Point p1, Point p2)
+        {
+            return Math.Sqrt((p2.X - p1.X) * (p2.X - p1.X) + (p2.Y - p1.Y) * (p2.Y - p1.Y));
+        }
+    }
 }
