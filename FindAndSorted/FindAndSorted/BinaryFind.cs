@@ -10,6 +10,8 @@ namespace FindAndSorted
     {
         public static int Find(int[] array, int query)
         {
+            if (array.Length == 0)
+                return -1;
             int left = 0;
             int right = array.Length - 1;
             while (left < right)
