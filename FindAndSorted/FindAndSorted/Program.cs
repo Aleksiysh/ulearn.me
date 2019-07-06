@@ -18,7 +18,7 @@ namespace FindAndSorted
             //Sorted.BubbleSortRange(array, 1, 2);
             //Sorted.BubbleSort(array);
 
-            int[] array = GenerateArray(1000000);
+            int[] array = GenerateArray(1000);
             Sorted.MergeSort(array);
 
 

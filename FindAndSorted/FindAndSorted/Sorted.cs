@@ -8,7 +8,7 @@ namespace FindAndSorted
 {
     class Sorted
     {
-        
+
         /// <summary>
         ///  Сотировка пузырьком
         /// </summary>
@@ -42,7 +42,7 @@ namespace FindAndSorted
         /// <summary>
         /// 
         /// </summary>
-        
+
         public static void MergeSort(int[] array)
         {
             int[] temporaryArray = new int[array.Length];
@@ -56,10 +56,9 @@ namespace FindAndSorted
             MergeSort_(array, start, middle, temporaryArray);
             MergeSort_(array, middle + 1, end, temporaryArray);
             Merge(array, start, middle, end, temporaryArray);
-
         }
 
-        static void Merge(int[] array, int start, int middle, int end, int[] temporaryArray)
+        private static void Merge(int[] array, int start, int middle, int end, int[] temporaryArray)
         {
             var leftPtr = start;
             var rightPtr = middle + 1;
