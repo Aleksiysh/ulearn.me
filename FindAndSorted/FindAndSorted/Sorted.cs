@@ -46,7 +46,7 @@ namespace FindAndSorted
         public static void MergeSort(int[] array)
         {
             int[] temporaryArray = new int[array.Length];
-            MergeSort_(array, 0, array.Length - 1);
+            MergeSort_(array, 0, array.Length - 1, temporaryArray);
 
         }
         private static void MergeSort_(int[] array, int start, int end, int[] temporaryArray)
