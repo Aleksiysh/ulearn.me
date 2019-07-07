@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Autocomplete
+namespace FindAndSorted
 {
     public class RightBorderTask
     {
@@ -15,22 +15,28 @@ namespace Autocomplete
         /// Функция должна быть НЕ рекурсивной
         /// и работать за O(log(items.Length)*L), где L — ограничение сверху на длину фразы
         /// </remarks>
-        public static int GetRightBorderIndex(IReadOnlyList<string> phrases, string prefix, int left, int right)
+        public static int GetRightBorderIndex(List<string> phrases,
+                                    string prefix, int left, int right)
         {
-            if (phrases.Count == 0)
-                return phrases.Count;
-
+            if (phrases.Count == 0 
+                //||string.Compare(prefix, phrases[phrases.Count - 1], StringComparison.OrdinalIgnoreCase) >= 0
+                )
+                    return phrases.Count;
+          
             var m = 0;
-            while (right != left && right != 0)
+            while (right != left && right!=0)
             {
-                m = (left/2 + right/2);
-                if (string.Compare(prefix, phrases[m],
+                m = (left + right) / 2;
+                if (string.Compare(prefix, phrases[m], 
                             StringComparison.OrdinalIgnoreCase) >= 0
-                            || phrases[m].Contains(prefix) )
+                            || phrases[m].Contains(prefix))
                     left = m + 1;
                 else
                     right = m;
             }
+            if (string.Compare(prefix, phrases[phrases.Count - 1], 
+                                StringComparison.OrdinalIgnoreCase) == 0)
+                return right;
             return right;
         }
     }

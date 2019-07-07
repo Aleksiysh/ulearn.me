@@ -19,15 +19,19 @@ namespace FindAndSorted
             //Sorted.BubbleSort(array);
 
             //int[] array = GenerateArray(1000);
-            int[] array = new int[] { 1, 2, 3, 4, 5, 6 };
-            Console.WriteLine(RecurseSearch.FindRightBorder(array, 2));
-            Console.WriteLine(RecurseSearch.FindRightBorder(array, 0));
-            Console.WriteLine(RecurseSearch.FindRightBorder(array, 9));
-            Console.WriteLine(RecurseSearch.FindRightBorder(new int[0], 9));
-            
-            
+            //int[] array = new int[] { 1, 3, 3, 4, 5, 6 };
+            //Console.WriteLine(RecurseSearch.FindRightBorder(array, 2));
+            //Console.WriteLine(RecurseSearch.FindRightBorder(array, 0));
+            //Console.WriteLine(RecurseSearch.FindRightBorder(array, 9));
+            //Console.WriteLine(RecurseSearch.FindRightBorder(new int[0], 9));
 
+            List<string> str = new List<string> { "a", "ab", "abc" };
+            Console.WriteLine(RightBorderTask.GetRightBorderIndex(str, "abc", -1, str.Count));
 
+            //string str1 = "qwerty";
+            //Console.WriteLine (str1.Contains(""));
+
+            
             //Sorted.MergeSort(array);
 
 

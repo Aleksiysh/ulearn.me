@@ -31,7 +31,7 @@ namespace Autocomplete
                 return left - 1;
             }
 
-            var m = (left + right) / 2;
+            var m = (left/2 + right/2);
             if (string.Compare(phrases[m], prefix, StringComparison.OrdinalIgnoreCase) < 0)
                 return GetLeftBorderIndex(phrases, prefix, m + 1, right);
             return GetLeftBorderIndex(phrases, prefix, left, m);

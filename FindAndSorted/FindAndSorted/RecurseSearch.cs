@@ -30,7 +30,7 @@ namespace FindAndSorted
         #region Правая граница
         public static int FindRightBorder(int[] arr, int value)
         {
-            return BinSearchRightBorderWile(arr, value, 0, arr.Length);
+            return BinSearchRightBorderWhile(arr, value, -1, arr.Length);
         }
         //Рекурсия
         private static int BinSearchRightBorder(int[] array, int value, int left, int right)
@@ -50,10 +50,12 @@ namespace FindAndSorted
             return BinSearchRightBorder(array, value, left, m);
         }
         //While()
-        private static int BinSearchRightBorderWile(int[] array, int value, int left, int right)
+        private static int BinSearchRightBorderWhile(int[] array, int value, int left, int right)
         {
             if (array.Length == 0 || value - array[array.Length - 1] >= 0)
                 return array.Length;
+            if (value - array[0] < 0)
+                return 0;
 
             var m = 0;
             while (left != right)
@@ -68,7 +70,7 @@ namespace FindAndSorted
             if (array[left] == value)
                 return right + 1;
             else
-                return 0;
+                return right;
         }
 
         #endregion
