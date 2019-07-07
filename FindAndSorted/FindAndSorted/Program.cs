@@ -26,13 +26,17 @@ namespace FindAndSorted
             //Console.WriteLine(RecurseSearch.FindRightBorder(new int[0], 9));
 
             List<string> str = new List<string> { "a", "ab", "abc" };
-            Console.WriteLine(RightBorderTask.GetRightBorderIndex(str, "abc", -1, str.Count));
+            Console.WriteLine(RightBorderTask.GetCountByPrefix(new List<string> {"aa","ab","bc","bd","be","ca","cd" },"a"));
+            Console.WriteLine(RightBorderTask.GetCountByPrefix(new List<string> {"aa","ab","bc","bd","be","ca","cd" },"b"));
+
 
             //string str1 = "qwerty";
             //Console.WriteLine (str1.Contains(""));
 
-            
+
             //Sorted.MergeSort(array);
+            
+
 
 
             Console.WriteLine("Press any key");
