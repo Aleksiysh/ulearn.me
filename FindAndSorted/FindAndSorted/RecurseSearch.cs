@@ -55,9 +55,10 @@ namespace FindAndSorted
             if (array.Length == 0 || value - array[array.Length - 1] >= 0)
                 return array.Length;
 
+            var m = 0;
             while (left != right)
             {
-                var m = (left + right) / 2;
+                m = (left + right) / 2;
                 if (array[m] - value < 0)
                     left = m + 1;
                 else
