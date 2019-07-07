@@ -16,16 +16,25 @@ namespace Autocomplete
         /// и работать за O(log(items.Length)*L), где L — ограничение сверху на длину фразы
         /// </remarks>
         public static int GetRightBorderIndex(IReadOnlyList<string> phrases, string prefix, int left, int right)
-        {
-            // IReadOnlyList похож на List, но у него нет методов модификации списка.
-            // Этот код решает задачу, но слишком неэффективно. Замените его на бинарный поиск!
-            for (int i = phrases.Count-1; i >= 0; i--)
+        {           
+            if (phrases.Count == 0 ||
+                string.Compare(prefix, phrases[phrases.Count - 1], StringComparison.OrdinalIgnoreCase) >= 0)
+                return phrases.Count;
+
+            var m = 0;
+            while (right != left)
             {
-                if (string.Compare(prefix, phrases[i], StringComparison.OrdinalIgnoreCase) >= 0 
-                    || phrases[i].StartsWith(prefix, StringComparison.OrdinalIgnoreCase))
-                    return i + 1;
+                m = (left + right) / 2;
+                if (string.Compare(prefix, phrases[m], StringComparison.OrdinalIgnoreCase) >= 0)
+                    left = m + 1;
+                else
+                    right = m;
             }
+
+            if (prefix == phrases[right])
+                return right + 1;
             return 0;
+
         }
     }
 }
