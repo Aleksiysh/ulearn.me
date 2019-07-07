@@ -8,19 +8,19 @@ namespace FindAndSorted
 {
     class RecurseSearch
     {
-        private static int BinSearchLeftBorder(long[] array, long value, int left, int right)
+        private static int BinSearchLeftBorder(int[] array, int value, int left, int right)
         {
-            if (array.Length == 0 || array[0] >= value)
+            if (/*array.Length == 0 || */ array[0] - value >= 0)
                 return -1;
             if (left == right)
                 return left - 1;
             var m = (left + right) / 2;
-            if (array[m] < value)
+            if (array[m] - value <0 )
                 return BinSearchLeftBorder(array, value, m + 1, right);
             return BinSearchLeftBorder(array, value, left, m);
         }
 
-        public static int FindLeftBorder(long[] arr, long value)
+        public static int FindLeftBorder(int[] arr, int value)
         {
             return BinSearchLeftBorder(arr, value, -1, arr.Length);
         }

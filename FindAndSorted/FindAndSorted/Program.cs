@@ -18,8 +18,16 @@ namespace FindAndSorted
             //Sorted.BubbleSortRange(array, 1, 2);
             //Sorted.BubbleSort(array);
 
-            int[] array = GenerateArray(1000);
-            Sorted.MergeSort(array);
+            //int[] array = GenerateArray(1000);
+            int[] array = new int[] { 1, 2, 3, 4, 5, 6 };
+            Console.WriteLine(RecurseSearch.FindLeftBorder(array, 2));
+            Console.WriteLine(RecurseSearch.FindLeftBorder(array, 0));
+            Console.WriteLine(RecurseSearch.FindLeftBorder(array, 9));
+            
+            
+
+
+            //Sorted.MergeSort(array);
 
 
             Console.WriteLine("Press any key");
