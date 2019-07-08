@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -7,6 +8,19 @@ using System.Threading.Tasks;
 
 namespace BasicsOfOOP
 {
+    public class SuperBeautyImageFilter
+    {
+        public string ImageName;
+        public double GaussianParameter;
+        public void Run()
+        {
+            Console.WriteLine("Processing {0} with parameter {1}",
+                ImageName,
+                GaussianParameter.ToString(CultureInfo.InvariantCulture));
+            //do something useful
+        }
+    }
+
     class Program
     {
         //static double MyNexDouble(Random rnd, double min, double max)
@@ -16,6 +30,10 @@ namespace BasicsOfOOP
 
         static void Main(string[] args)
         {
+            var filter = new SuperBeautyImageFilter();
+            filter.ImageName = "Paris.jpg";
+            filter.GaussianParameter = 0.4;
+            filter.Run();
             //    foreach (var file in Directory.GetFiles("\\"))
             //        Console.WriteLine(file);
             //    Console.WriteLine(Directory.GetParent("."));
@@ -40,26 +58,28 @@ namespace BasicsOfOOP
 
             //var arg1 = "100500";
             //Console.Write(arg1.ToInt() + "42".ToInt()); // 100542
-            List<FileInfo> files = new List<FileInfo>();
-            List<DirectoryInfo> dir = new List<DirectoryInfo>();
-            files.Add(new FileInfo("\\A\\1.mp3"));
-            dir.Add(files[0].Directory);
-            files.Add(new FileInfo("\\B\\2.mp3"));
-            dir.Add(files[1].Directory);
-            files.Add(new FileInfo("\\A\\3.mp3"));
-            dir.Add(files[2].Directory);
-            Console.WriteLine(dir[0].FullName);
-            Console.WriteLine(files[0].DirectoryName);
-
+            //List<FileInfo> files = new List<FileInfo>();
+            //List<DirectoryInfo> dir = new List<DirectoryInfo>();
+            //files.Add(new FileInfo("\\A\\1.mp3"));
+            //dir.Add(files[0].Directory);
+            //files.Add(new FileInfo("\\B\\2.mp3"));
+            //dir.Add(files[1].Directory);
+            //files.Add(new FileInfo("\\A\\3.mp3"));
+            //dir.Add(files[2].Directory);
+            //Console.WriteLine(dir[0].FullName);
             //Console.WriteLine(files[0].DirectoryName);
-            List<DirectoryInfo> dirInfo = GetAlbums(files);
-            Console.WriteLine(files[0].Extension);
 
-            // files.Add("\\A\\1.mp3");
+            //List<DirectoryInfo> dirInfo = GetAlbums(files);
+            //Console.WriteLine(files[0].Extension);
+
+
 
 
             Console.ReadKey();
         }
+
+
+
         public static List<DirectoryInfo> GetAlbums(List<FileInfo> files)
         {
             List<DirectoryInfo> listDirInfo = new List<DirectoryInfo>();
