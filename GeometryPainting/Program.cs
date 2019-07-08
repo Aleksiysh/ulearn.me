@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using GeometryTasks;
 
+
 namespace GeometryPainting
 {
     internal static class Program
