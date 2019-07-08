@@ -41,10 +41,19 @@ namespace BasicsOfOOP
             //var arg1 = "100500";
             //Console.Write(arg1.ToInt() + "42".ToInt()); // 100542
             List<FileInfo> files = new List<FileInfo>();
+            List<DirectoryInfo> dir = new List<DirectoryInfo>();
             files.Add(new FileInfo("\\A\\1.mp3"));
+            dir.Add(files[0].Directory);
             files.Add(new FileInfo("\\B\\2.mp3"));
+            dir.Add(files[1].Directory);
             files.Add(new FileInfo("\\A\\3.mp3"));
+            dir.Add(files[2].Directory);
+            Console.WriteLine(dir[0].FullName);
+            Console.WriteLine(files[0].DirectoryName);
+
+            //Console.WriteLine(files[0].DirectoryName);
             List<DirectoryInfo> dirInfo = GetAlbums(files);
+            Console.WriteLine(files[0].Extension);
 
             // files.Add("\\A\\1.mp3");
 
@@ -54,11 +63,23 @@ namespace BasicsOfOOP
         public static List<DirectoryInfo> GetAlbums(List<FileInfo> files)
         {
             List<DirectoryInfo> listDirInfo = new List<DirectoryInfo>();
+
             foreach (var dir in files)
             {
-
-                if (!listDirInfo.Contains(dir.Directory))
-                    listDirInfo.Add(dir.Directory);
+                if (dir.Extension == ".mp3" || dir.Extension == ".wav")
+                {
+                    bool flag = false;
+                    foreach (var d in listDirInfo)
+                    {
+                        if (dir.DirectoryName == d.FullName)
+                        {
+                            flag = true;
+                            break;
+                        }
+                    }
+                    if (!flag)
+                        listDirInfo.Add(dir.Directory);
+                }              
             }
             return listDirInfo;
         }
