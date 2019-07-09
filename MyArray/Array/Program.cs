@@ -49,6 +49,10 @@ namespace MyArray
             var strArr = new string[] { "A", "D", "B", "F", "C" };
             var dbArr = new double[] { 1, 2, 5, 3, 7, 5 };
 
+            intArr.BubbleSort();
+            strArr.BubbleSort();
+            dbArr.BubbleSort();
+         
             
             Swap(intArr, 0, 1);
             intArr.Swap(2, 0);
