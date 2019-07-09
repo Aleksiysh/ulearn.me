@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections;
 
 namespace MyArray
 {
@@ -11,12 +8,29 @@ namespace MyArray
         public int X;
         public int Y;
 
+        double DistanseToZero(Point point)
+        {
+            return Math.Sqrt(point.X * point.X + point.Y * point.Y);
+        }
+
         public int CompareTo(object obj)
         {
             var point = (Point)obj;
-            double thisDistance = Math.Sqrt(X * X + Y * Y);
-            double thatDistance = Math.Sqrt(point.X * point.X + point.Y * point.Y);
+            double thisDistance =DistanseToZero(this);
+            double thatDistance = DistanseToZero(point);
             return thisDistance.CompareTo(thatDistance);
+        }
+    }
+    class DistanceToZeroComparer : IComparer
+    {
+        double DistanseToZero(Point point)
+        {
+            return Math.Sqrt(point.X * point.X + point.Y * point.Y);
+        }
+
+        public int Compare(object x, object y)
+        {
+            throw new NotImplementedException();
         }
     }
 
@@ -30,14 +44,15 @@ namespace MyArray
             array.SetValue(obj, j);
         }
 
-        public static void BubbleSort(this Array array)
+        public static void BubbleSort(this Array array, IComparer comparer)
         {
+
             for (int i = array.Length - 1; i >= 0; i--)
                 for (int j = 1; j <= i; j++)
                 {
-                    var element1 = (IComparable)array.GetValue(j);
+                    var element1 = array.GetValue(j);
                     var element0 = array.GetValue(j - 1);
-                    if (element1.CompareTo(element0) < 0)
+                    if (comparer.Compare(element1, element0) < 0)
                     {
                         array.Swap(j, j - 1);
                     }
