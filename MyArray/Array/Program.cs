@@ -8,9 +8,11 @@ namespace MyArray
 {
     class Program
     {
-        public static void main()
+        public static void Main()
         {
-            CombineArray.Main();
+            CombineArray.Run();
+
+            
         }
     }
 }

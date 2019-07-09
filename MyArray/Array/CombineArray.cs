@@ -8,7 +8,7 @@ namespace MyArray
 {
     public class CombineArray
     {
-        public static void Main()
+        public static void Run()
         {
             var ints = new[] { 1, 2 };
             var strings = new[] { "A", "B" };
