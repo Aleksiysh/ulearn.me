@@ -6,10 +6,18 @@ using System.Threading.Tasks;
 
 namespace MyArray
 {
-    class Point
+    class Point : IComparable
     {
         public int X;
         public int Y;
+
+        public int CompareTo(object obj)
+        {
+            var point = (Point)obj;
+            double thisDistance = Math.Sqrt(X * X + Y * Y);
+            double thatDistance = Math.Sqrt(point.X * point.X + point.Y * point.Y);
+            return thisDistance.CompareTo(thatDistance);
+        }
     }
 
     #region Расширение класса Array
@@ -56,17 +64,17 @@ namespace MyArray
             var dbArr = new double[] { 1, 2, 5, 3, 7, 5 };
             var pointArray = new Point[]
             {
+                new Point{X=3,Y=3},
                 new Point{X=1,Y=1},
-                new Point{X=2,Y=2},
-                new Point{X=3,Y=3}
+                new Point{X=2,Y=2}
             };
 
             intArr.BubbleSort();
             strArr.BubbleSort();
             dbArr.BubbleSort();
             pointArray.BubbleSort();
-         
-            
+
+
             Swap(intArr, 0, 1);
             intArr.Swap(2, 0);
 
