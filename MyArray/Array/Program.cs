@@ -84,7 +84,9 @@ namespace MyArray
 
         public static void Main()
         {
-            MiddleOfClass.Run();
+            //MiddleOfClass.Run();
+            Console.WriteLine(Math.Atan(-Math.PI));
+
 
             #region Теория
             var intArr = new int[] { 2, 4, 6, 2, 6, 5 };

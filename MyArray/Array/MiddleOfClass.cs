@@ -59,6 +59,7 @@ namespace MyArray
         {
             public int Compare(object x, object y)
             {
+                
                 throw new NotImplementedException();
             }
         }
@@ -90,20 +91,35 @@ namespace MyArray
 
             #endregion
             #region По часовой стрелке
-            var array = new[]
-            {
-            new Point { X = 1, Y = 0 },
-            new Point { X = -1, Y = 0 },
-            new Point { X = 0, Y = 1 },
-            new Point { X = 0, Y = -1 },
-            new Point { X = 0.01, Y = 1 }
-            };
-            Array.Sort(array, new ClockwiseComparer());
-            foreach (Point e in array)
-                Console.WriteLine("{0} {1}", e.X, e.Y);
 
-            #endregion
-        }
+        //    [js]
+        //function get_angle(center, point)
+        //{
+        //    var x = point.x - center.x;
+        //    var y = point.y - center.y;
+        //    if (x == 0) return (y > 0) ? 180 : 0;
+        //    var a = Math.atan(y / x) * 180 / Math.PI;
+        //    a = (x > 0) ? a + 90 : a + 270;
+        //    return a;
+        //}
+        //[/js]
+
+
+
+        //var array = new[]
+        //{
+        //new Point { X = 1, Y = 0 },
+        //new Point { X = -1, Y = 0 },
+        //new Point { X = 0, Y = 1 },
+        //new Point { X = 0, Y = -1 },
+        //new Point { X = 0.01, Y = 1 }
+        //};
+        //Array.Sort(array, new ClockwiseComparer());
+        //foreach (Point e in array)
+        //    Console.WriteLine("{0} {1}", e.X, e.Y);
+
+        #endregion
+    }
 
     }
 }
