@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 namespace MyArray
 {
+    class Point
+    {
+        public int X;
+        public int Y;
+    }
+
     #region Расширение класса Array
     static class ArrayExtensions
     {
@@ -48,10 +54,17 @@ namespace MyArray
             var intArr = new int[] { 2, 4, 6, 2, 6, 5 };
             var strArr = new string[] { "A", "D", "B", "F", "C" };
             var dbArr = new double[] { 1, 2, 5, 3, 7, 5 };
+            var pointArray = new Point[]
+            {
+                new Point{X=1,Y=1},
+                new Point{X=2,Y=2},
+                new Point{X=3,Y=3}
+            };
 
             intArr.BubbleSort();
             strArr.BubbleSort();
             dbArr.BubbleSort();
+            pointArray.BubbleSort();
          
             
             Swap(intArr, 0, 1);
