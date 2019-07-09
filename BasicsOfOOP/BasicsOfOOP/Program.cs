@@ -79,7 +79,7 @@ namespace BasicsOfOOP
             files.Add(new FileInfo("\\B\\2.mp3"));
             files.Add(new FileInfo("\\A\\3.mp3"));
             List<DirectoryInfo> dirInfo = GetAlbums(files);
-            Console.WriteLine( files[0].DirectoryName);
+            Console.WriteLine(files[0].DirectoryName);
 
 
 
@@ -108,10 +108,7 @@ namespace BasicsOfOOP
                     }
                     if (!flag)
                         listDirInfo.Add(dir.Directory);
-                }              
-                while
-                if (!listDirInfo.Contains(dir.Directory))
-                    listDirInfo.Add(dir.Directory);
+                }
             }
             return listDirInfo;
         }
