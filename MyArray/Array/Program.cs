@@ -5,8 +5,8 @@ namespace MyArray
 {
     class Point
     {
-        public int X;
-        public int Y;
+        public double X;
+        public double Y;
 
         //double DistanseToZero(Point point)
         //{
@@ -84,6 +84,9 @@ namespace MyArray
 
         public static void Main()
         {
+            MiddleOfClass.Run();
+
+            #region Теория
             var intArr = new int[] { 2, 4, 6, 2, 6, 5 };
             var strArr = new string[] { "A", "D", "B", "F", "C" };
             var dbArr = new double[] { 1, 2, 5, 3, 7, 5 };
@@ -113,6 +116,7 @@ namespace MyArray
             BubbleSort(intArr);
 
             Console.ReadKey();
+            #endregion
         }
 
         #region Две сортировки пузырьком для int & string
