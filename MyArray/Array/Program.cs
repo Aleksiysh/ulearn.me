@@ -3,24 +3,25 @@ using System.Collections;
 
 namespace MyArray
 {
-    class Point : IComparable
+    class Point
     {
         public int X;
         public int Y;
 
-        double DistanseToZero(Point point)
-        {
-            return Math.Sqrt(point.X * point.X + point.Y * point.Y);
-        }
+        //double DistanseToZero(Point point)
+        //{
+        //    return Math.Sqrt(point.X * point.X + point.Y * point.Y);
+        //}
 
-        public int CompareTo(object obj)
-        {
-            var point = (Point)obj;
-            double thisDistance =DistanseToZero(this);
-            double thatDistance = DistanseToZero(point);
-            return thisDistance.CompareTo(thatDistance);
-        }
+        //public int CompareTo(object obj)
+        //{
+        //    var point = (Point)obj;
+        //    double thisDistance =DistanseToZero(this);
+        //    double thatDistance = DistanseToZero(point);
+        //    return thisDistance.CompareTo(thatDistance);
+        //}
     }
+    #region Сравнение по удаленности от центра
     class DistanceToZeroComparer : IComparer
     {
         double DistanseToZero(Point point)
@@ -30,7 +31,16 @@ namespace MyArray
 
         public int Compare(object x, object y)
         {
-            throw new NotImplementedException();
+            return DistanseToZero((Point)x).CompareTo(DistanseToZero((Point)y));
+        }
+    }
+    #endregion
+
+    class XDecreasingComparer : IComparer
+    {
+        public int Compare(object x, object y)
+        {
+            return -((Point)x).X.CompareTo(((Point)y).X);
         }
     }
 
@@ -84,10 +94,10 @@ namespace MyArray
                 new Point{X=2,Y=2}
             };
 
-            intArr.BubbleSort();
-            strArr.BubbleSort();
-            dbArr.BubbleSort();
-            pointArray.BubbleSort();
+            //intArr.BubbleSort();
+            //strArr.BubbleSort();
+            //dbArr.BubbleSort();
+            pointArray.BubbleSort(new DistanceToZeroComparer());
 
 
             Swap(intArr, 0, 1);
