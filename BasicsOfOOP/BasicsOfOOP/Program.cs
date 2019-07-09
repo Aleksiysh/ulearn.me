@@ -58,6 +58,7 @@ namespace BasicsOfOOP
 
             //var arg1 = "100500";
             //Console.Write(arg1.ToInt() + "42".ToInt()); // 100542
+
             //List<FileInfo> files = new List<FileInfo>();
             //List<DirectoryInfo> dir = new List<DirectoryInfo>();
             //files.Add(new FileInfo("\\A\\1.mp3"));
@@ -71,6 +72,14 @@ namespace BasicsOfOOP
 
             //List<DirectoryInfo> dirInfo = GetAlbums(files);
             //Console.WriteLine(files[0].Extension);
+
+
+            List<FileInfo> files = new List<FileInfo>();
+            files.Add(new FileInfo("\\A\\1.mp3"));
+            files.Add(new FileInfo("\\B\\2.mp3"));
+            files.Add(new FileInfo("\\A\\3.mp3"));
+            List<DirectoryInfo> dirInfo = GetAlbums(files);
+            Console.WriteLine( files[0].DirectoryName);
 
 
 
@@ -100,6 +109,9 @@ namespace BasicsOfOOP
                     if (!flag)
                         listDirInfo.Add(dir.Directory);
                 }              
+                while
+                if (!listDirInfo.Contains(dir.Directory))
+                    listDirInfo.Add(dir.Directory);
             }
             return listDirInfo;
         }
