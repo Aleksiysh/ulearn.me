@@ -84,8 +84,8 @@ namespace MyArray
 
         public static void Main()
         {
-            //MiddleOfClass.Run();
-            Console.WriteLine(Math.Atan(-Math.PI));
+            MiddleOfClass.Run();
+           
 
 
             #region Теория
