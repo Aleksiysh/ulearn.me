@@ -6,21 +6,6 @@ using System.Threading.Tasks;
 
 namespace DataIntegrity
 {
-    public static void Check()
-    {
-        Vector vector = new Vector(3, 4);
-        Console.WriteLine(vector.ToString());
-
-        vector.X = 0;
-        vector.Y = -1;
-        Console.WriteLine(vector.ToString());
-
-        vector = new Vector(9, 40);
-        Console.WriteLine(vector.ToString());
-
-        Console.WriteLine(new Vector(0, 0).ToString());
-    }
-
     public class Vector
     {
         public double X { get; set; }
@@ -41,6 +26,20 @@ namespace DataIntegrity
 
     class VectorTask
     {
+        public static void Check()
+        {
+            Vector vector = new Vector(3, 4);
+            Console.WriteLine(vector.ToString());
+
+            vector.X = 0;
+            vector.Y = -1;
+            Console.WriteLine(vector.ToString());
+
+            vector = new Vector(9, 40);
+            Console.WriteLine(vector.ToString());
+
+            Console.WriteLine(new Vector(0, 0).ToString());
+        }
 
     }
 }

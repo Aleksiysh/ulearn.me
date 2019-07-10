@@ -11,8 +11,8 @@ namespace DataIntegrity
         static void Main(string[] args)
         {
             //StudentTask.Run();
-            TitleTask.Run();
-
+            //TitleTask.Run();
+            RatioTask.Check(3, 5);
             Console.ReadKey();
         }
     }
