@@ -11,12 +11,12 @@ namespace Digger
     {
         public CreatureCommand Act(int x, int y)
         {
-            return new CreatureCommand();
+            return new CreatureCommand() {DeltaX = 0,DeltaY = 0 };
         }
 
         public bool DeadInConflict(ICreature conflictedObject)
         {
-            throw new NotImplementedException();
+            return false;
         }
 
         public int GetDrawingPriority()
@@ -26,7 +26,7 @@ namespace Digger
 
         public string GetImageFileName()
         {
-            throw new NotImplementedException();
+            return "Terrian.png";
         }
     }
 
@@ -34,12 +34,12 @@ namespace Digger
     {
         public CreatureCommand Act(int x, int y)
         {
-            return new CreatureCommand();
+            return new CreatureCommand() { DeltaX = 0, DeltaY = 0 };
         }
 
         public bool DeadInConflict(ICreature conflictedObject)
         {
-            throw new NotImplementedException();
+            return false;
         }
 
         public int GetDrawingPriority()
@@ -49,7 +49,7 @@ namespace Digger
 
         public string GetImageFileName()
         {
-            throw new NotImplementedException();
+            return "Terrian.png";
         }
     }
 
