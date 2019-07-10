@@ -12,9 +12,15 @@ namespace Manipulation
         /// </summary>
         public static PointF[] GetJointPositions(double shoulder, double elbow, double wrist)
         {
-            var elbowPos = new PointF(0, (float) Manipulator.UpperArm);
-            var wristPos = new PointF((float) Manipulator.Forearm, (float) Manipulator.UpperArm);
-            var palmEndPos = new PointF((float) (Manipulator.Forearm + Manipulator.Palm), (float) Manipulator.UpperArm);
+            double alpha = shoulder;
+            var elbowPos = new PointF(0 + (float)Manipulator.UpperArm * (float)Math.Cos(alpha),
+                                    0 + (float) Manipulator.UpperArm * (float)Math.Sin(alpha));
+            alpha = alpha + elbow - Math.PI;
+            var wristPos = new PointF(elbowPos.X+(float)Manipulator.Forearm * (float)Math.Cos(alpha),
+                                       elbowPos.Y+ (float)Manipulator.UpperArm * (float)Math.Sin(alpha));
+            alpha = alpha + wrist - Math.PI;
+            var palmEndPos = new PointF(wristPos.X+ (float)(Manipulator.Palm * (float)Math.Cos(alpha)), 
+                wristPos.Y+(float)Manipulator.Palm * (float)Math.Sin(alpha));
             return new PointF[]
             {
                 elbowPos,

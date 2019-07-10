@@ -46,6 +46,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RatioTask.cs" />
+    <Compile Include="RefTask.cs" />
     <Compile Include="StudentTask.cs" />
     <Compile Include="TitleTask.cs" />
     <Compile Include="VectorTask.cs" />

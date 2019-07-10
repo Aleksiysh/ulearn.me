@@ -12,8 +12,12 @@ namespace DataIntegrity
         {
             //StudentTask.Run();
             //TitleTask.Run();
-            RatioTask.Check(3, 5);
+            //RatioTask.Check(3, 5);
+            //Console.ReadKey();
+
+            //RefTask.Run();
+
             Console.ReadKey();
         }
-    }
+    }   
 }
