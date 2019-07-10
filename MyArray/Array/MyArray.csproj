@@ -43,8 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Book.cs" />
+    <Compile Include="ClockWise.cs" />
     <Compile Include="CombineArray.cs" />
     <Compile Include="MiddleOfClass.cs" />
+    <Compile Include="MinInArray.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
