@@ -36,6 +36,7 @@ namespace Manipulation
         // С помощью строчки TestCase можно добавлять новые тестовые данные.
         // Аргументы TestCase превратятся в аргументы метода.
         [TestCase(Math.PI / 2, Math.PI / 2, Math.PI, Manipulator.Forearm + Manipulator.Palm, Manipulator.UpperArm)]
+        [TestCase(Math.PI / 2, 0, 0, 0, 90.0f)]
         public void TestGetJointPositions(double shoulder, double elbow, double wrist, double palmEndX, double palmEndY)
         {
             var joints = AnglesToCoordinatesTask.GetJointPositions(shoulder, elbow, wrist);
