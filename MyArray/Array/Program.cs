@@ -3,10 +3,15 @@ using System.Collections;
 
 namespace MyArray
 {
-    class Point
+    class Point : object
     {
         public double X;
         public double Y;
+
+        public override string ToString()
+        {
+            return string.Format("{0},{1}", X, Y);
+        }
 
         //double DistanseToZero(Point point)
         //{
@@ -84,10 +89,10 @@ namespace MyArray
 
         public static void Main()
         {
-            MiddleOfClass.Run();
-           
+            //MiddleOfClass.Run();
+            TriangleRun.Run();
 
-
+            /*
             #region Теория
             var intArr = new int[] { 2, 4, 6, 2, 6, 5 };
             var strArr = new string[] { "A", "D", "B", "F", "C" };
@@ -116,9 +121,9 @@ namespace MyArray
 
             BubbleSort(strArr);
             BubbleSort(intArr);
-
+            */
             Console.ReadKey();
-            #endregion
+           
         }
 
         #region Две сортировки пузырьком для int & string
