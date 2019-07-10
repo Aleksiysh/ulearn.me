@@ -14,13 +14,13 @@ namespace Manipulation
         {
             double alpha = shoulder;
             var elbowPos = new PointF(0 + (float)Manipulator.UpperArm * (float)Math.Cos(alpha),
-                                    0 + (float) Manipulator.UpperArm * (float)Math.Sin(alpha));
+                                    0 + (float)Manipulator.UpperArm * (float)Math.Sin(alpha));
             alpha = alpha + elbow - Math.PI;
-            var wristPos = new PointF(elbowPos.X+(float)Manipulator.Forearm * (float)Math.Cos(alpha),
-                                       elbowPos.Y+ (float)Manipulator.UpperArm * (float)Math.Sin(alpha));
+            var wristPos = new PointF(elbowPos.X + (float)Manipulator.Forearm * (float)Math.Cos(alpha),
+                                       elbowPos.Y + (float)Manipulator.UpperArm * (float)Math.Sin(alpha));
             alpha = alpha + wrist - Math.PI;
-            var palmEndPos = new PointF(wristPos.X+ (float)(Manipulator.Palm * (float)Math.Cos(alpha)), 
-                wristPos.Y+(float)Manipulator.Palm * (float)Math.Sin(alpha));
+            var palmEndPos = new PointF(wristPos.X + (float)(Manipulator.Palm * (float)Math.Cos(alpha)),
+                wristPos.Y + (float)Manipulator.Palm * (float)Math.Sin(alpha));
             return new PointF[]
             {
                 elbowPos,
@@ -41,7 +41,20 @@ namespace Manipulation
             var joints = AnglesToCoordinatesTask.GetJointPositions(shoulder, elbow, wrist);
             Assert.AreEqual(palmEndX, joints[2].X, 1e-5, "palm endX");
             Assert.AreEqual(palmEndY, joints[2].Y, 1e-5, "palm endY");
-            Assert.Fail("TODO: проверить, что расстояния между суставами равны длинам сегментов манипулятора!");
+            if (Math.Abs(FullDistanse(joints) - (palmEndX + palmEndY)) > 1e-5)
+                Assert.Fail("TODO: проверить, что расстояния между суставами равны длинам сегментов манипулятора!");
+        }
+
+        static double FullDistanse(PointF[] joints)
+        {
+            return Distanse(new PointF(0, 0), joints[0]) +
+                     Distanse(joints[0], joints[1]) +
+                     Distanse(joints[1], joints[2]);
+        }
+
+        static double Distanse(PointF p1, PointF p2)
+        {
+            return Math.Sqrt((p2.X - p1.X) * (p2.X - p1.X) + (p2.Y - p1.Y) * (p2.Y - p1.Y));
         }
 
     }
