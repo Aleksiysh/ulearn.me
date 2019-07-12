@@ -30,21 +30,18 @@ namespace Manipulation
             if (key.KeyValue == 83)
                 Elbow -= Math.PI / 90;
 
-           // Wrist = -Alpha - Shoulder - Elbow;
+           Wrist = 2*Math.PI - Alpha - Shoulder - Elbow;
 
-            form.Invalidate(); // 
+            form.Invalidate(); 
         }
 
 
         public static void MouseMove(Form form, MouseEventArgs e)
         {
             // TODO: Измените X и Y пересчитав координаты (e.X, e.Y) в логические.
-
-            X = e.X;
-            Y = e.Y-form.Height;
-
-            MouseEventArgs a = e;
-            Console.WriteLine(e.X + " " + e.Y);
+                                 
+            X = ConvertWindowToMath(new PointF(e.X, e.Y), GetShoulderPos(form)).X;
+            Y = ConvertWindowToMath(new PointF(e.X, e.Y), GetShoulderPos(form)).Y;
 
             UpdateManipulator();
             form.Invalidate();
@@ -54,14 +51,20 @@ namespace Manipulation
         {
             // TODO: Измените Alpha, используя e.Delta — размер прокрутки колеса мыши
 
+            Alpha += e.Delta/120 * Math.PI / 360;
             UpdateManipulator();
             form.Invalidate();
         }
 
         public static void UpdateManipulator()
         {
+            var arrAngle = ManipulatorTask.MoveManipulatorTo(X, Y, Alpha);
+            if (!Double.IsNaN(arrAngle[0])) Shoulder = arrAngle[0];
+            if (!Double.IsNaN(arrAngle[0])) Elbow = arrAngle[1];
+            if (!Double.IsNaN(arrAngle[0])) Wrist = arrAngle[2];
             // Вызовите ManipulatorTask.MoveManipulatorTo и обновите значения полей Shoulder, Elbow и Wrist, 
             // если они не NaN. Это понадобится для последней задачи.
+            //ManipulatorTask.MoveManipulatorTo()
         }
 
         public static void DrawManipulator(Graphics graphics, PointF shoulderPos)
@@ -69,7 +72,8 @@ namespace Manipulation
             var joints = AnglesToCoordinatesTask.GetJointPositions(Shoulder, Elbow, Wrist);
 
             graphics.DrawString(
-                $"X={X:0}, Y={Y:0}, Alpha={Alpha:0.00}",
+                $"X={X:0}, Y={Y:0}, Alpha={Alpha:0.00}\n" +
+                $"shoulder = {Shoulder*180/Math.PI:0.00}, elbow = {Elbow * 180 / Math.PI:0.00}, wrist = {Wrist * 180 / Math.PI:0.00},alpha = {Alpha * 180 / Math.PI:0.00}",
                 new Font(SystemFonts.DefaultFont.FontFamily, 12),
                 Brushes.DarkRed,
                 10,
@@ -113,3 +117,4 @@ namespace Manipulation
 
     }
 }
+
