@@ -53,12 +53,18 @@ namespace QueueStacksGenerics
             //Console.WriteLine(sum);
             #endregion
 
-            SortGen.Run();
+            MaxInArrray.Run();
+
+
+
+            //SortGen.Run();
 
             //BracketExp.Run();
             //MovingAvarage.Run();
 
             //Console.ReadKey();
+
+            Console.ReadKey();
         }
     }
 }

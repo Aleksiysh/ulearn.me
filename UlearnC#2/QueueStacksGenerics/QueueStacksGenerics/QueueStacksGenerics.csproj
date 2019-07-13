@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BracketExp.cs" />
+    <Compile Include="MaxInArrray.cs" />
     <Compile Include="MovingAvarage.cs" />
     <Compile Include="MyQueueArr.cs" />
     <Compile Include="MyStackArr.cs" />
