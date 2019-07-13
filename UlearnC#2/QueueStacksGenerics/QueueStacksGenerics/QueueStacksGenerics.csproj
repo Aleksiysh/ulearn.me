@@ -55,6 +55,7 @@
     <Compile Include="QueueGeneric.cs" />
     <Compile Include="QueueLinkList.cs" />
     <Compile Include="ReversPolishRecord.cs" />
+    <Compile Include="SortGen.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

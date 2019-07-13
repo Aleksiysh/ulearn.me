@@ -53,8 +53,10 @@ namespace QueueStacksGenerics
             //Console.WriteLine(sum);
             #endregion
 
+            SortGen.Run();
+
             //BracketExp.Run();
-            MovingAvarage.Run();
+            //MovingAvarage.Run();
 
             //Console.ReadKey();
         }
