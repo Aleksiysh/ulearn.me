@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28307.757
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueueStacksGenerics", "QueueStacksGenerics\QueueStacksGenerics.csproj", "{632F913A-F05A-415C-93A7-BDA708671F27}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BracketExpTest", "BracketExpTest\BracketExpTest.csproj", "{0077BC60-662D-49D8-B4C3-7F348DDFD369}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "BracketExpTest\Tests.csproj", "{0077BC60-662D-49D8-B4C3-7F348DDFD369}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

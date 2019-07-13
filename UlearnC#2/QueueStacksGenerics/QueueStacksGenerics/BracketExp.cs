@@ -8,32 +8,55 @@ namespace QueueStacksGenerics
 {
     public class BracketExp
     {
-        public static bool Check (string str)
+        public static bool Check(string str)
         {
-            char openBracket;
+            #region Refacroting
+            //char openBracket;
+            //var stack = new Stack<char>();
+            //foreach (var symbol in str)
+            //{
+
+            //    switch (symbol)
+            //    {
+            //        case '(':
+            //        case '[':
+            //            stack.Push(symbol);
+            //            break;
+            //        case ')':
+            //            if (stack.Count == 0) return false;
+            //            openBracket = stack.Pop();
+            //            if (openBracket != '(') return false;
+            //            break;
+            //        case ']':
+            //            if (stack.Count == 0) return false;
+            //            openBracket = stack.Pop();
+            //            if (openBracket != '[') return false;
+            //            break;                    
+            //    }
+            //}
+            //return stack.Count == 0 ; 
+            #endregion
+
+
             var stack = new Stack<char>();
+            var dict = new Dictionary<char, char>();
+            dict['['] = ']';
+            dict['('] = ')';
+            dict['{'] = '}';
+            dict['<'] = '>';
+            char openBracket;
             foreach (var symbol in str)
-            {
-                
-                switch (symbol)
+            {                
+                if (dict.Keys.Contains(symbol))
+                    stack.Push(symbol);
+                else if (dict.Values.Contains(symbol))
                 {
-                    case '(':
-                    case '[':
-                        stack.Push(symbol);
-                        break;
-                    case ')':
-                        if (stack.Count == 0) return false;
-                        openBracket = stack.Pop();
-                        if (openBracket != '(') return false;
-                        break;
-                    case ']':
-                        if (stack.Count == 0) return false;
-                        openBracket = stack.Pop();
-                        if (openBracket != '[') return false;
-                        break;                    
-                }
+                    if (stack.Count == 0) return false;
+                    openBracket = stack.Pop();
+                    if (dict[openBracket] != symbol) return false;
+                }                
             }
-            return stack.Count == 0 ;
+            return stack.Count == 0;
         }
 
 
@@ -42,7 +65,7 @@ namespace QueueStacksGenerics
 
         public static void Run()
         {
-            
+
         }
     }
 }

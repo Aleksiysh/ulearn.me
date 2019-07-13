@@ -63,7 +63,7 @@ namespace BracketExpTest
         [TestMethod]
         public void NotBracketsAndBracketsOk2()
         {
-            Test("[(asd)[df]]", true);
+            Test("[(asd)[df]]<>", true);
         }
     }
 }
