@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BracketExp.cs" />
     <Compile Include="MyQueueArr.cs" />
     <Compile Include="MyStackArr.cs" />
     <Compile Include="Program.cs" />

@@ -53,6 +53,7 @@ namespace QueueStacksGenerics
             //Console.WriteLine(sum);
             #endregion
 
+            BracketExp.Run();
 
             Console.ReadKey();
         }
