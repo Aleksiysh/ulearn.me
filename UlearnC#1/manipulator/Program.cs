@@ -12,6 +12,7 @@ namespace Manipulation
         [STAThread]
         private static void Main()
         {
+            //ManipulatorTask.MoveManipulatorTo(180, 150, 0);
             InitializeForm();
             Application.Run(Form);
         }
