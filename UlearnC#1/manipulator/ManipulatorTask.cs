@@ -16,27 +16,20 @@ namespace Manipulation
         {
             double cosAngle = (Math.Abs(Math.Cos(angle)) < 1e-12) ? 0 : Math.Cos(angle);
             double sinAngle = (Math.Abs(Math.Sin(angle)) < 1e-12) ? 0 : Math.Sin(angle);
-
             double wristX = x - Manipulator.Palm * cosAngle;
             double wristY = y + Manipulator.Palm * sinAngle;
 
-
             double shoulderWrist = Math.Sqrt(wristX * wristX + wristY * wristY);
-
             double elbow = TriangleTask.GetABAngle(Manipulator.UpperArm,
                                         Manipulator.Forearm, shoulderWrist);
             if (elbow == double.NaN) return new[] { double.NaN, double.NaN, double.NaN };
 
-            double angleX = Math.Atan2(wristY , wristX);
-            double angleShoulderWrist = TriangleTask.GetABAngle(
+            double shoulder = TriangleTask.GetABAngle(
                                                     shoulderWrist,
                                                     Manipulator.UpperArm,
-                                                    Manipulator.Forearm);
-            double shoulder = angleShoulderWrist + angleX;
-
+                                                    Manipulator.Forearm) + Math.Atan2(wristY, wristX);
             double wrist = 2*Math.PI- angle - shoulder - elbow;
-
-            // Используйте поля Forearm, UpperArm, Palm класса Manipulator
+          
             return new[] { shoulder, elbow, wrist };
         }
     }
