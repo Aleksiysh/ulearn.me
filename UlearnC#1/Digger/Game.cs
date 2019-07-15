@@ -4,6 +4,13 @@ namespace Digger
 {
     public static class Game
     {
+        private const string mapNull = @"
+T   T
+T P  
+T    
+T   T
+TTTTT";
+
         private const string mapWithPlayerTerrain = @"
 TTT T
 TTP T
@@ -40,7 +47,7 @@ S TTST  TG
 
         public static void CreateMap()
         {
-            Map = CreatureMapCreator.CreateMap(mapWithPlayerTerrain);
+            Map = CreatureMapCreator.CreateMap(mapNull);
         }
     }
 }

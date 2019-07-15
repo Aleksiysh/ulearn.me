@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.28307.705
+VisualStudioVersion = 15.0.28307.757
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Digger", "Digger.csproj", "{610D5A45-09EB-4839-B6E5-D8601DB31897}"
 EndProject
@@ -20,6 +20,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {1270A619-72DB-4260-A77F-24BFFD7E5878}
+		SolutionGuid = {2DAEE017-F7D2-469F-AEB8-8085FFF8C1C7}
 	EndGlobalSection
 EndGlobal
